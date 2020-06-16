@@ -5,33 +5,35 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class ContasMensais {
+public class UtilityBills{
     public static void main(String[] args) {
         
         try{
-        List <Orçamento> orçamento = new ArrayList<>();
+        List <Budget> budget = new ArrayList<>();
         
         Scanner teclado = new Scanner(System.in);
         
-        System.out.print("Quanto foi o pagamento nesse mês? R$");
+        System.out.print("Wage's total? R$");
         double pagamento = teclado.nextDouble();
         
-        System.out.print("Quantas contas deseja cadastrar? ");
+        System.out.print("How many bills do you need to pay? ");
         int contas = teclado.nextInt();
         
         for (int i=0; i<contas; i++){
             teclado.nextLine();
             System.out.println();
-            System.out.print("Nome da conta: ");
-            String nome = teclado.nextLine();
-            System.out.print("Valor da conta: R$");
-            double valor = teclado.nextDouble();
-            pagamento -= valor;
-            orçamento.add(new Conta(nome, valor));
+            System.out.print("Account's name: ");
+            String name = teclado.nextLine();
+            System.out.print("Value: R$");
+            double value = teclado.nextDouble();
+            pagamento -= value;
+            budget.add(new Account(name, value));
         }
         
+        System.out.println();
         System.out.println("Relatório das contas mensais:");
-        for (Orçamento o : orçamento){
+        
+        for (Budget o : budget){
             System.out.println();
             System.out.println(o);
         }
